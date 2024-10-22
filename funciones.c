@@ -1,15 +1,16 @@
-#include "funciones.h"
 #include <stdio.h>
 #include <string.h>
+#include "funciones.h"
 
 void LeerNombreProductos(char productos[10][30], float precios[10], int cantidad) {
     for (int i = 0; i < cantidad; i++) {
         printf("Ingrese el nombre del producto %d: ", i + 1);
-        scanf("%s", productos[i]);
+        scanf("%s", productos[i]); 
         printf("Ingrese el precio del producto %d: ", i + 1);
         scanf("%f", &precios[i]);
     }
 }
+
 float CalcularValorTotal(float precios[10], int cantidad) {
     float total = 0;
     for (int i = 0; i < cantidad; i++) {
@@ -17,6 +18,7 @@ float CalcularValorTotal(float precios[10], int cantidad) {
     }
     return total;
 }
+
 int ProductoMasCaro(float precios[10], int cantidad) {
     int indice = 0;
     for (int i = 1; i < cantidad; i++) {
@@ -26,6 +28,7 @@ int ProductoMasCaro(float precios[10], int cantidad) {
     }
     return indice;
 }
+
 int ProductoMasBarato(float precios[10], int cantidad) {
     int indice = 0;
     for (int i = 1; i < cantidad; i++) {
@@ -35,15 +38,17 @@ int ProductoMasBarato(float precios[10], int cantidad) {
     }
     return indice;
 }
+
 float CalcularPromedio(float precios[10], int cantidad) {
-    float total = calcular_total(precios, cantidad);
+    float total = CalcularValorTotal(precios, cantidad);
     return total / cantidad;
 }
+
 int BuscarProducto(char productos[10][30], char nombre[30], int cantidad) {
     for (int i = 0; i < cantidad; i++) {
         if (strcmp(productos[i], nombre) == 0) {
             return i;
         }
     }
-    return -1; 
+    return -1;
 }
